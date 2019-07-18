@@ -10,19 +10,39 @@ function add(e) {
         // store the input value
         var todoInputText = inputBox.value;
 
-        // using the value create a li elem
+        // using the value create a li elem 
         var newLi = document.createElement('li');
-        newLi.textContent = todoInputText;
-        // console.log(newLi)
+        var newP = document.createElement('p')
+
+        newP.textContent = todoInputText;
+
+        //create delete span (button) when creating Li
+        var deletespan = document.createElement('span');
+        deletespan.textContent = "X";
+
+        //append p & span to li
+        newLi.appendChild(newP);
+        newLi.appendChild(deletespan);
+
 
         // append the li elm to ul
-        mainList.appendChild(newLi);     // Append <li> to <ul> 
+        mainList.appendChild(newLi);
         // console.log("done")
 
         // clear the input value
         inputBox.value = "";
         // console.log("cleared");
 
+        deletespan.addEventListener("click", deleteLi);
+
     }
+}
+
+
+//Delete A TO-DO
+
+function deleteLi(d) {
+    d.target.parentElement.style.display = "none";
+    // console.log(d)
 }
 

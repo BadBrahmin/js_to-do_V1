@@ -1,0 +1,9 @@
+.ulList {
+    display: flex;
+    cursor: pointer;
+}
+
+li {
+    display: flex;
+    
+}
