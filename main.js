@@ -16,11 +16,17 @@ function add(e) {
 
         newP.textContent = todoInputText;
 
+        //create checkbox element 
+        var tickTick = document.createElement('input')
+        // console.log("tickTick")
+        tickTick.type = "checkbox";
+
         //create delete span (button) when creating Li
         var deletespan = document.createElement('span');
         deletespan.textContent = "X";
 
         //append p & span to li
+        newLi.appendChild(tickTick);
         newLi.appendChild(newP);
         newLi.appendChild(deletespan);
 
@@ -34,6 +40,7 @@ function add(e) {
         // console.log("cleared");
 
         deletespan.addEventListener("click", deleteLi);
+        tickTick.addEventListener("click", tickTickStatus);
 
     }
 }
@@ -46,3 +53,14 @@ function deleteLi(d) {
     // console.log(d)
 }
 
+//checkbox functions 
+
+function tickTickStatus(t) {
+    t.target.parentElement.style.setProperty("text-decoration", "line-through");;
+}
+
+
+
+    //show only on hover
+    // EventListener on <span> to delete li
+    //remove li on click
